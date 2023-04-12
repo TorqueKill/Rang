@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "Start Server",
+		"type": "shell",
+		"command": "cd backend ; npx tsc server.ts ; node server.js",
+		"presentation": {
+		  "reveal": "always",
+		  "panel": "shared",
+		  "group": "left"
+		}
+	  },
+	  {
+		"label": "Start React App",
+		"type": "npm",
+		"script": "start",
+		"path": "frontend",
+		"presentation": {
+		  "reveal": "always",
+		  "panel": "shared",
+		  "group": "right"
+		}
+	  },
+	  {
+		"label": "Run All",
+		"dependsOrder": "parallel",
+		"dependsOn": ["Start Server", "Start React App"]
+	  }
+	],
+	"compounds": [
+	  {
+		"label": "Server & React App",
+		"dependsOn": [
+		  "Start Server",
+		  "Start React App"
+		]
+	  }
+	]
+  }
+  
