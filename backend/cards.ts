@@ -8,7 +8,6 @@ enum Suit {
   }
   
 enum Rank {
-    Ace,
     Two,
     Three,
     Four,
@@ -20,7 +19,8 @@ enum Rank {
     Ten,
     Jack,
     Queen,
-    King
+    King,
+    Ace
 }
   
 class Card {
@@ -66,6 +66,7 @@ class Deck {
     }
   
     drawCard(): Card | undefined {
+      if(this.cards.length <= 0){console.log("no more cards");return undefined}
       return this.cards.pop();
     }
 
@@ -81,6 +82,9 @@ class Deck {
               this.cards.push(new Card(suit, rank));
             }
           }
+    }
+    cardsLeft():number{
+        return this.cards.length
     }
 }
 

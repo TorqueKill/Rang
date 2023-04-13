@@ -12,19 +12,19 @@ var Suit;
 exports.Suit = Suit;
 var Rank;
 (function (Rank) {
-    Rank[Rank["Ace"] = 0] = "Ace";
-    Rank[Rank["Two"] = 1] = "Two";
-    Rank[Rank["Three"] = 2] = "Three";
-    Rank[Rank["Four"] = 3] = "Four";
-    Rank[Rank["Five"] = 4] = "Five";
-    Rank[Rank["Six"] = 5] = "Six";
-    Rank[Rank["Seven"] = 6] = "Seven";
-    Rank[Rank["Eight"] = 7] = "Eight";
-    Rank[Rank["Nine"] = 8] = "Nine";
-    Rank[Rank["Ten"] = 9] = "Ten";
-    Rank[Rank["Jack"] = 10] = "Jack";
-    Rank[Rank["Queen"] = 11] = "Queen";
-    Rank[Rank["King"] = 12] = "King";
+    Rank[Rank["Two"] = 0] = "Two";
+    Rank[Rank["Three"] = 1] = "Three";
+    Rank[Rank["Four"] = 2] = "Four";
+    Rank[Rank["Five"] = 3] = "Five";
+    Rank[Rank["Six"] = 4] = "Six";
+    Rank[Rank["Seven"] = 5] = "Seven";
+    Rank[Rank["Eight"] = 6] = "Eight";
+    Rank[Rank["Nine"] = 7] = "Nine";
+    Rank[Rank["Ten"] = 8] = "Ten";
+    Rank[Rank["Jack"] = 9] = "Jack";
+    Rank[Rank["Queen"] = 10] = "Queen";
+    Rank[Rank["King"] = 11] = "King";
+    Rank[Rank["Ace"] = 12] = "Ace";
 })(Rank || (Rank = {}));
 exports.Rank = Rank;
 var Card = /** @class */ (function () {
@@ -60,6 +60,10 @@ var Deck = /** @class */ (function () {
         }
     };
     Deck.prototype.drawCard = function () {
+        if (this.cards.length <= 0) {
+            console.log("no more cards");
+            return undefined;
+        }
         return this.cards.pop();
     };
     Deck.prototype.addCard = function (card) {
@@ -72,6 +76,9 @@ var Deck = /** @class */ (function () {
                 this.cards.push(new Card(suit, rank));
             }
         }
+    };
+    Deck.prototype.cardsLeft = function () {
+        return this.cards.length;
     };
     return Deck;
 }());

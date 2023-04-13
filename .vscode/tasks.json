@@ -13,9 +13,8 @@
 	  },
 	  {
 		"label": "Start React App",
-		"type": "npm",
-		"script": "start",
-		"path": "frontend",
+		"type": "shell",
+		"command": "cd frontend ; npm start ; sleep 5 ; open -a 'Google Chrome' http://localhost:3000 ; open -a 'Google Chrome' http://localhost:3000 ; open -a 'Google Chrome' http://localhost:3000 ; open -a 'Google Chrome' http://localhost:3000",
 		"presentation": {
 		  "reveal": "always",
 		  "panel": "shared",

@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userCounterReducer from './counter'
+import handCards from './handCards';
 
 const store = configureStore({
-  reducer: {users: userCounterReducer},
+  reducer: { cardsInHand: handCards, users: userCounterReducer},
 })
 
 export default store;

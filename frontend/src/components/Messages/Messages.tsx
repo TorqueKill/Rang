@@ -10,7 +10,8 @@ export default function Messages({ socket }) {
 
   useEffect(() => {
     socket.on('message', ({ message }) => {
-      setMessages(prevMessages => [...prevMessages, message]);
+      //set message on top of the array
+      setMessages(prev=>[message, ...prev]);
     });
 
     return () => {

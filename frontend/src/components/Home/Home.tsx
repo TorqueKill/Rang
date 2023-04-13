@@ -1,6 +1,6 @@
 import { Socket } from "socket.io-client" 
 import { DefaultEventsMap } from "socket.io/dist/typed-events"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import type { RootState,AppDispatch } from '../../redux/store';
 import { useNavigate } from "react-router-dom";
@@ -56,7 +56,6 @@ function HomePage({socket}:HomePageProps){
         });
 
         socket.on('startingGame', () => {
-            socket.emit('startGame')
             navigate('/game');
         })
 
@@ -71,7 +70,7 @@ function HomePage({socket}:HomePageProps){
             socket.off('newUserReady');
             socket.off('tooManyUsers');
         }
-    }, [socket]);
+    }, []);
 
 
     
